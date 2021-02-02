@@ -15,7 +15,8 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "@sanity/cli": "^2.1.4"
   },
   "scripts": {
     "build": "npm run build:sanity && pwd && npm run build:web",

@@ -18,8 +18,10 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run build:sanity && pwd && npm run build:web",
+    "build:sanity": "cd studio && sanity build ../public/studio -y && cd ..",
+    "start:web": "react-scripts start",
+    "build:web": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"    
   },

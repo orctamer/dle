@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "Duel Links Entertainment"
+    "name": "Duel Links Entertainment",
+    "basePath": "/studio"
   },
   "api": {
     "projectId": "1hfsciz6",

@@ -42,15 +42,14 @@ export default function Article() {
 
     return (
         <main className="bg-blue-100 min-h-screen p-12">
-
             <section className="container mx-auto">
                 <h1 className="text-5xl flex justify-center mb-12">Articles</h1>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {postData && postData.map((post, index) => (
-                    <article className="bg-white rounded-lg">
+                    {postData && postData.map((post, index) => (                                               
+                    <article className="bg-white rounded-lg" key={index}>
                         <Link to={"/article/" + post.slug.current } key={post.slug.current}>                        
                         <span className="block h-64 relative rounded shadow leading-snug bg-white border-l-l8 border-blue-400" key={index}>
-                        <img src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} className="w-full h-full rounded-t-lg object-cover absolute" />                            
+                        <img src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} className="h-full w-full rounded-t-lg object-cover absolute" />                            
                         </span>
                         </Link>
                         <h1 className="text-4xl py-2 text-center">{post.title}</h1>
@@ -60,7 +59,7 @@ export default function Article() {
                         <h3 className="text-gray-800 bg-opacity-75 rounded"><span className="font-bold text-blue-500">{post.author.name}</span> <span className="text-blue-500 opacity-50">{moment(post.publishedAt).fromNow()}</span></h3>                        
                         </span>                        
                         </Link>
-                    </article>
+                    </article>                
                     ))}
                 </div>
             </section>

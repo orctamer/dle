@@ -1,9 +1,9 @@
 import {BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './components/Home'
 import About from'./components/About'
-import SinglePost from './components/SinglePost';
-import Post from './components/Post';
-import Breakdown from './components/Breakdown';
+import SingleArticle from './components/SingleArticle';
+import Post from './components/Articles';
+import Breakdowns from './components/Breakdowns';
 import NavBar from './components/NavBar';
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
       <Switch>
         <Route component={Home} path='/' exact />
         <Route component={About} path='/about/:slug' />
-        <Route component={SinglePost} path='/post/:slug' />
-        <Route component={Post} path='/post' />
-        <Route component={Breakdown} path='/breakdown' />
+        <Route component={SingleArticle} path='/article/:slug' />
+        <Route component={Post} path='/articles' />
+        <Route component={Breakdowns} path='/breakdowns' />
       </Switch>
     </BrowserRouter>
   );

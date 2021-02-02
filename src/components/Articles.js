@@ -10,7 +10,7 @@ function urlFor(source) {
   return builder.image(source)
 }
 
-export default function Post() {
+export default function Article() {
     const [postData, setPost] = useState(null)
     
     useEffect(()=> {
@@ -48,7 +48,7 @@ export default function Post() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {postData && postData.map((post, index) => (
                     <article className="bg-white rounded-lg">
-                        <Link to={"/post/" + post.slug.current } key={post.slug.current}>                        
+                        <Link to={"/article/" + post.slug.current } key={post.slug.current}>                        
                         <span className="block h-64 relative rounded shadow leading-snug bg-white border-l-l8 border-blue-400" key={index}>
                         <img src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} className="w-full h-full rounded-t-lg object-cover absolute" />                            
                         </span>

@@ -4,8 +4,8 @@ export default function Home() {
     return (
         <main>
             <img src={image} alt="Logo Banner" className="w-full" />
-            <section>
-                <h1>Welcome to Duel Links Entertainment</h1>
+            <section className="bg-blue-200 min-h-screen p-12">
+                <div className="container mx-auto"><h1>Welcome to Duel Links Entertainment</h1></div>
             </section>
         </main>
     )

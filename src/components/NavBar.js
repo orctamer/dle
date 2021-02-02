@@ -9,15 +9,12 @@ export default function NavBar() {
                     <NavLink to ="/" exact className="inflex-flex items-center py-6 px-3 mr-4 text-blue-100 hover:text-blue-300 font-bold font-4xl tracking-wide" activeClassName="text-blue-300 ">
                         Duel Links Entertainment
                     </NavLink>
-                    <NavLink to ="/post" className="inflex-flex items-center py-6 px-3 mr-4 text-blue-100 hover:text-blue-300 font-bold font-4xl tracking-wide" activeClassName="text-blue-300">
+                    <NavLink to ="/articles" className="inflex-flex items-center py-6 px-3 mr-4 text-blue-100 hover:text-blue-300 font-bold font-4xl tracking-wide" activeClassName="text-blue-300">
                         Articles
                     </NavLink>
-                    <NavLink to ="/project" className="inflex-flex items-center py-6 px-3 mr-4 text-blue-100 hover:text-blue-300 font-bold font-4xl tracking-wide" activeClassName="text-blue-300" >
+                    <NavLink to ="/breakdowns" className="inflex-flex items-center py-6 px-3 mr-4 text-blue-100 hover:text-blue-300 font-bold font-4xl tracking-wide" activeClassName="text-blue-300" >
                         Breakdowns
-                    </NavLink>
-                    <NavLink to ="/about" className="inflex-flex items-center py-6 px-3 mr-4 text-blue-100 hover:text-blue-300 font-bold font-4xl tracking-wide" activeClassName="text-blue-300" >
-                        About
-                    </NavLink>                                                                           
+                    </NavLink>                                                                                     
                 </nav>
             <div className="inline-flex p-3 my-auto">
                 <SocialIcon url="https://www.youtube.com/channel/UCLXlZXX8Ho8Dk6xF-e-vY1A" className="mr-4" target="_blank" fgColor="#fff" style={{height: 35, width:35}} />

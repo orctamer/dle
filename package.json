@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "npm run build:sanity && pwd && npm run build:web",
-    "build:sanity": "cd studio && sanity build public -y && cd ..",
+    "build:sanity": "cd studio && sanity install && sanity build public -y && cd ..",
     "start:web": "react-scripts start",
     "build:web": "react-scripts build",
     "test": "react-scripts test",

@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "react-social-icons": "^4.1.0"
+    "react-social-icons": "^4.1.0",
+    "@sanity/cli": "^2.1.4"
   }
 }

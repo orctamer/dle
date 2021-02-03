@@ -5,6 +5,8 @@ import imageUrlBuilder from '@sanity/image-url';
 import moment from 'moment';
 import BlockContent from '@sanity/block-content-to-react';
 import {Link} from 'react-router-dom';
+import ApexCharts from 'apexcharts'
+import ReactApexChart from 'react-apexcharts';
 
 const builder = imageUrlBuilder(sanityClient);
 
@@ -22,6 +24,7 @@ export default function SingleBreakdown() {
             _id,
             slug,
             publishedAt,
+            Graph,
             image {
                 asset->{
                     _id,
@@ -37,8 +40,40 @@ export default function SingleBreakdown() {
         .catch(console.error)
     }, [slug])
     if (!singlePost) return <div>Loading...</div>
+    let chartData = {
+        series: singlePost.Graph.map(x => x.amount),
+        options: {
+            chart: {
+                type: 'pie'
+            },
+            fill: {
+                type: 'image',
+                image: {
+                    src: singlePost.Graph.map(x => urlFor(x.artwork).url())
+                }                
+            },
+            labels: singlePost.Graph.map(x => x.name),
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#111']
+                },
+                background: {
+                    enabled: true,
+                    foreColor: '#fff',
+                    borderWidth: 0
+                }
+            },
+            legend: {
+                show: true,
+                labels: {
+                    colors: ['#fff']
+                }
+            }
+        }
+    }
     return (        
-        <main className="bg-blue-200 min-h-screen p-12">
+        <main className="bg-blue-200 min-h-screen p-12">         
             <article className="container mx-auto shadow-lg bg-blue-100 rounded-lg">
                 <header className="relative">
                     <div className="h-full w-full flex items-center justify-center">
@@ -55,9 +90,12 @@ export default function SingleBreakdown() {
                     </div>
                 </header>
                 <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
+                
+                <div className="w-full p-8" style={{backgroundImage: "url('https://cdn.discordapp.com/attachments/359412299716493312/772343352242470912/breakdown2.png')"}}>
+                    <div className="mx-auto w-full text-white"><ReactApexChart options={chartData.options} series={chartData.series} type="pie" width={620} /></div>
+                </div>
                     <BlockContent blocks={singlePost.description} projectId="1hfsciz6" dataset="production" />
                 </div>
-
                 <div className="px-16 lg:px-48 py-12 lg-py-20 max-w-full">
                     {singlePost.decks.map(deck => (
                         <div>                        

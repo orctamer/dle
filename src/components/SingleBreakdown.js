@@ -5,7 +5,6 @@ import imageUrlBuilder from '@sanity/image-url';
 import moment from 'moment';
 import BlockContent from '@sanity/block-content-to-react';
 import {Link} from 'react-router-dom';
-import ApexCharts from 'apexcharts'
 import ReactApexChart from 'react-apexcharts';
 
 const builder = imageUrlBuilder(sanityClient);

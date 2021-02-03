@@ -44,8 +44,8 @@ export default function SinglePost() {
         <main className="bg-blue-200 min-h-screen p-12">
             <article className="container mx-auto shadow-lg bg-blue-100 rounded-lg">
                 <header className="relative">
-                    <div clasName="absolute h-full w-full flex items-center justify-center p-8">
-                        <div className="bg-white bg-opacity-75 rounded p-12">
+                    <div className="h-full w-full flex items-center justify-center">
+                        <div className="w-full bg-white bg-opacity-75 rounded p-12">
                             <img src={urlFor(singlePost.mainImage).url()} className="w-full object-cover rounded-t" alt="" />
                             <h1 className="text-3xl lg:text-6xl text-center my-6">{singlePost.title}</h1>
                             <Link to={"/about/" + singlePost.authorSlug.current} key={singlePost.authorSlug.current}>
@@ -56,7 +56,6 @@ export default function SinglePost() {
                             </Link>
                         </div>
                     </div>
-                    <image></image>
                 </header>
                 <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
                     <BlockContent blocks={singlePost.body} projectId="1hfsciz6" dataset="production" />

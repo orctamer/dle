@@ -5,7 +5,7 @@ import SingleArticle from './components/SingleArticle';
 import Post from './components/Articles';
 import Breakdowns from './components/Breakdowns';
 import NavBar from './components/NavBar';
-
+import SingleBreakdown from './components/SingleBreakdown';
 function App() {
   return (
     <BrowserRouter>
@@ -15,7 +15,8 @@ function App() {
         <Route component={About} path='/about/:slug' />
         <Route component={SingleArticle} path='/article/:slug' />
         <Route component={Post} path='/articles' />
-        <Route component={Breakdowns} path='/breakdowns' />
+        <Route component={SingleBreakdown} path='/breakdown/:slug' />
+        <Route component={Breakdowns} path='/breakdowns' />        
       </Switch>
     </BrowserRouter>
   );

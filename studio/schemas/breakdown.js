@@ -48,6 +48,7 @@ export default {
                 type: "object",
                 fields: [
                     {name: 'artwork', type:"image", title: "Card Artwork", options: {hotspot: true}},
+                    {name: 'name', type:"string", title: "Deck Archetype"},
                     {name: 'amount', type:"string", title: "Amount of Decks"}
                 ]  
             }]           

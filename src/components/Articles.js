@@ -40,26 +40,39 @@ export default function Article() {
         .catch(console.error)
     }, [])
 
+if (!postData) return (
+    <div className="w-full h-full fixed block top-0 left-0 bg-gray-900 opacity-100 z-50">
+  <span className="text-blue-600 opacity-100 top-1/2 my-0 mx-auto block relative w-0 h-0" style={{top: '50%'}}>
+    <i className="fas fa-circle-notch fa-spin fa-5x"></i>
+  </span>
+</div>
+)
+
     return (
-        <main className="bg-blue-100 min-h-screen p-12">
+        <main className="bg-gray-900 min-h-screen p-12">
             <section className="container mx-auto">
-                <h1 className="text-5xl flex justify-center mb-12">Articles</h1>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {postData && postData.map((post, index) => (                                               
-                    <article className="bg-white rounded-lg" key={index}>
-                        <Link to={"/article/" + post.slug.current } key={post.slug.current}>                        
-                        <span className="block h-64 relative rounded shadow leading-snug bg-white border-l-l8 border-blue-400" key={index}>
-                        <img src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} className="h-full w-full rounded-t-lg object-cover absolute" />                            
-                        </span>
-                        </Link>
-                        <h1 className="text-4xl py-2 text-center">{post.title}</h1>
-                        <Link to={"/about/" + post.author.slug.current } key={post.author.slug.current}>
-                        <span className="block relative flex justify-center items-center pr-4 pb-4">                                                
-                        <img src={urlFor(post.author.image).url()} alt={post.author.name} className="h-12 w-12 mx-4 rounded-full border-blue-500 border-2 border-solid my-auto" />                        
-                        <h3 className="text-gray-800 bg-opacity-75 rounded"><span className="font-bold text-blue-500">{post.author.name}</span> <span className="text-blue-500 opacity-50">{moment(post.publishedAt).fromNow()}</span></h3>                        
-                        </span>                        
-                        </Link>
-                    </article>                
+                    <div key={index} className="max-w-2xl mx-auto bg-gray-800 dark:bg-gray-800 overflow-hidden shadow-md rounded-lg">
+                    <Link to={'/article/' + post.slug.current}>
+                    <img className="w-full h-48 object-cover" src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} />
+                    </Link>
+                    <div className="p-6">
+                        <div>                
+                            <Link to={'/article/' + post.slug.current} className="block text-gray-100 dark:text-white font-semibold text-2xl mt-2 hover:text-gray-400 ">{post.title}</Link>                
+                        </div>
+
+                        <div className="mt-4">
+                            <div className="flex items-center">
+                                <div className="flex items-center">
+                                    <img class="h-10 object-cover rounded-full" src={urlFor(post.author.image).url()} alt={post.author.name + " Avatar"} />
+                                    <Link to={'/about/' + post.author.slug.current}  className="mx-2 text-gray-200 dark:text-gray-200 font-semibold">{post.author.name}</Link>
+                                </div>
+                                <span className="mx-1 text-gray-400 dark:text-gray-300 text-xs">{moment(post.publishedAt).format('MM/DD/YYYY')}</span>
+                            </div>
+                        </div>
+                    </div>
+                    </div>             
                     ))}
                 </div>
             </section>

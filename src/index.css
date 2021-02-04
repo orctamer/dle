@@ -1,16 +1,9 @@
 @import url('https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css');
 @import url('https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
-
-.cursive {
-  font-family: "Open Sans", cursive;
-}
+@import url('https://pagecdn.io/lib/font-awesome/5.10.0-11/css/all.min.css');
 
 .prose img {
   margin: 0 auto;
   border-radius: 5px;
-}
-
-.home-name {
-  font-size: 150px;
 }

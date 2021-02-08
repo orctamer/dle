@@ -54,12 +54,12 @@ if (!postData) return (
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {postData && postData.map((post, index) => (                                               
                     <div key={index} className="max-w-2xl mx-auto bg-gray-800 dark:bg-gray-800 overflow-hidden shadow-md rounded-lg">
-                    <Link to={'/article/' + post.slug.current}>
+                    <Link to={'/breakdown/' + post.slug.current}>
                     <img className="w-full h-48 object-cover" src={urlFor(post.image).url()} alt={post.image.alt} />
                     </Link>
                     <div className="p-6">
                         <div>                
-                            <Link to={'/article/' + post.slug.current} className="block text-blue-100 dark:text-white font-semibold text-2xl mt-2 hover:text-blue-400 ">{post.name}</Link>                
+                            <Link to={'/breakdown/' + post.slug.current} className="block text-blue-100 dark:text-white font-semibold text-2xl mt-2 hover:text-blue-400 ">{post.name}</Link>                
                         </div>
 
                         <div className="mt-4">

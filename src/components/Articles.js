@@ -59,14 +59,14 @@ if (!postData) return (
                     </Link>
                     <div className="p-6">
                         <div>                
-                            <Link to={'/article/' + post.slug.current} className="block text-gray-100 dark:text-white font-semibold text-2xl mt-2 hover:text-gray-400 ">{post.title}</Link>                
+                            <Link to={'/article/' + post.slug.current} className="block text-blue-100 dark:text-white font-semibold text-2xl mt-2 hover:text-blue-400 ">{post.title}</Link>                
                         </div>
 
                         <div className="mt-4">
                             <div className="flex items-center">
                                 <div className="flex items-center">
                                     <img class="h-10 object-cover rounded-full" src={urlFor(post.author.image).url()} alt={post.author.name + " Avatar"} />
-                                    <Link to={'/about/' + post.author.slug.current}  className="mx-2 text-gray-200 dark:text-gray-200 font-semibold">{post.author.name}</Link>
+                                    <Link to={'/about/' + post.author.slug.current}  className="mx-2 text-blue-500 dark:text-blue-500 font-semibold">{post.author.name}</Link>
                                 </div>
                                 <span className="mx-1 text-gray-400 dark:text-gray-300 text-xs">{moment(post.publishedAt).format('MM/DD/YYYY')}</span>
                             </div>

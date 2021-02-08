@@ -53,24 +53,33 @@ export default function About() {
     )
     return (
         <main className="bg-gray-900 min-h-screen p-12">                        
-            <div className="container mx-auto bg-gray-800 rounded-lg shadow-lg p-8">
-            <div className="flex items-center justify-center flex-col">
-            <div className="max-w-xs bg-gray-900 shadow-lg rounded-lg overflow-hidden mx-auto">
-                <img className="w-full h-56 object-cover" src={urlFor(author.image)}  alt={author.name}/>
-                <div className="py-5 text-center">
-                    <p className="block text-2xl text-gray-300 font-bold">{author.name}</p>
-                    <BlockContent blocks={author.bio} projectId="1hfsciz6" dataset="production" />
-                </div>
-            </div>
-            <img src={urlFor(author.image)} className="w-64 h-64 rounded" alt="" />
-            <h1 className="text-blue-500 text-3xl lg:text-6xl text-center mt-3 mb-6 font-bold">{author.name}</h1>
-            </div>
-            <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
-            <BlockContent blocks={author.bio} projectId="1hfsciz6" dataset="production" />
-            </div>
-            <h1 className="py-4 text-blue-500 text-xl font-bold">Posts by {author.name}</h1>
+    <div className="container w-full mx-auto">        
+    <div className="flex items-start justify-center">
+    <div className="bg-gray-800 shadow-lg rounded-lg overflow-hidden mx-auto flex w-1/2">
+      <div>
+      <img className="w-full h-56 object-cover" src={urlFor(author.image)} alt={author.name} />
+      <div className="py-5 text-center">
+        <p className="block text-2xl text-blue-500 font-bold">{author.name}</p>
+        <div className="text-gray-300"><BlockContent blocks={author.bio} projectId="1hfsciz6" dataset="production" /></div>
+      </div>
+      </div>
+      <div className="bg-blue-900 flex-grow p-4 flex flex-col rounded-r-lg shadow-lg text-blue-100">
+        <div className="font-bold text-center text-blue-100 pb-2">Posts by {author.name}</div>
+        {posts && posts.map((post, index) => (
+            <article className="my-2 flex items-end" key={index}>
+                <Link to={"/article/" + post.slug.current } key={post.slug.current}>  
+                <img src={urlFor(post.mainImage).url()} alt={post.mainImage.alt} style={{width: "275px", height: "96px"}} className="rounded-sm mr-4" />
+                <div className="flex-auto">{post.title}</div>
+                <div className="text-xs text-blue-400">{moment(post.publishedAt).format('YYYY-MM-DD')}</div>
+                </Link>
+            </article>
+        ))}
+      </div>
+    </div>     
+  </div>
+{/*             <h1 className="py-4 text-blue-500 text-xl font-bold">Posts by {author.name}</h1>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">     
-{/*             {posts && posts.map((post, index) => (
+             {posts && posts.map((post, index) => (
                 <article className="bg-white rounded-lg" key={index}>
                 <Link to={"/article/" + post.slug.current } key={post.slug.current}>                        
                 <span className="block h-64 relative rounded shadow leading-snug bg-white border-l-l8 border-blue-400" key={index}>
@@ -82,8 +91,8 @@ export default function About() {
                 </span>
                 </Link>
             </article>
-            ))} */}
-            </div>
+            ))}
+            </div> */}
             </div>
         </main>
     )

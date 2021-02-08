@@ -38,7 +38,11 @@ export default function SingleBreakdown() {
         }`).then((data) => setSinglePost(data[0]))
         .catch(console.error)
     }, [slug])
-    if (!singlePost) return <div>Loading...</div>
+    if (!singlePost) return     <div className="w-full h-full fixed block top-0 left-0 bg-gray-900 opacity-100 z-50">
+    <span className="text-blue-600 opacity-100 top-1/2 my-0 mx-auto block relative w-0 h-0" style={{top: '50%'}}>
+      <i className="fas fa-circle-notch fa-spin fa-5x"></i>
+    </span>
+  </div>
     let chartData = {
         series: singlePost.Graph.map(x => x.amount),
         options: {
@@ -72,17 +76,17 @@ export default function SingleBreakdown() {
         }
     }
     return (        
-        <main className="bg-blue-200 min-h-screen p-12">         
-            <article className="container mx-auto shadow-lg bg-blue-100 rounded-lg">
+        <main className="bg-gray-900 min-h-screen p-12">         
+            <article className="container mx-auto shadow-lg bg-gray-200 rounded-lg">
                 <header className="relative">
                     <div className="h-full w-full flex items-center justify-center">
-                        <div className="w-full bg-white bg-opacity-75 rounded p-12">
+                        <div className="w-full bg-black bg-opacity-95 rounded p-12">
                             <img src={urlFor(singlePost.image).url()} className="w-full object-cover rounded-t" alt="" />
-                            <h1 className="text-3xl lg:text-6xl text-center my-6">{singlePost.name}</h1>
+                            <h1 className="text-3xl lg:text-6xl text-center text-blue-400 my-6">{singlePost.name}</h1>
                             <Link to={"/about/" + singlePost.authorSlug.current} key={singlePost.authorSlug.current}>
                             <div className="flex justify-center text-gray-800">
                                 <img src={urlFor(singlePost.authorImage).url()} alt="" className="w-10 h-10 rounded-full border-2 border-solid border-blue-500" />
-                                <p className="flex items-center pl-2 text-2xl text-blue-500 font-bold">{singlePost.authorName} <span className="text-xs text-gray-800 ml-4"> Posted on: {moment(singlePost.publishedAt).format('MM/DD/YYYY')}</span> </p>
+                                <p className="flex items-center pl-2 text-2xl text-blue-500 font-bold">{singlePost.authorName} <span className="text-xs text-gray-700 ml-4"> Posted on: {moment(singlePost.publishedAt).format('MM/DD/YYYY')}</span> </p>
                             </div>
                             </Link>
                         </div>
